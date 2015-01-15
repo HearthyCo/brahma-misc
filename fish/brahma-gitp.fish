@@ -5,11 +5,11 @@ set -l color_2 '\033[1;36m'
 set -l color_no '\033[0m'
 
 if test "$argv"
-  for dir in brahma-*/
+  for dir in brahma-*
     if test -d "$dir/.git"
-      cd $dir
+      cd $dir; or continue
       echo -s -e "$color_1" "$dir" "\$ " "$color_2" "git $argv" "$color_no"
-      git $argv &
+      git $argv | sed "s/^/$dir > /" &
       cd ..
     end
   end
