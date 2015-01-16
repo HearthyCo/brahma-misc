@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 color_1='\033[0;33m'
 color_2='\033[1;33m'
