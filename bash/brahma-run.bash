@@ -15,7 +15,7 @@ if (( "$#" != 0 )); then
     fi
     cd $dir || continue
     echo -e "$color_1$dir \$ $color_2$@$color_no"
-    eval "$@ <&-" | sed "s/^/$(echo -e "$color_3$dir \> $color_no")/"
+    eval "$@ <&-" 2>&1 | sed "s/^/$(echo -e "$color_3$dir \> $color_no")/"
     cd ..
   done
   wait
