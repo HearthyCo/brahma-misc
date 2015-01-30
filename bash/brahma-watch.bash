@@ -29,7 +29,7 @@ grunt watch 2>&1 | sed -e "s/^/$(echo -e ${color_css}b-css${color_no}' ')/" &
 #csspid=$!
 #echo "PID: $csspid"
 cd ..
-cd brahma-client
+cd hearthy-client
 grunt dev 2>&1 | sed -e "s/^/$(echo -e ${color_client}b-cli${color_no}' ')/"
 #kill $comppid
 #kill $csspid
