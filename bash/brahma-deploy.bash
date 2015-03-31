@@ -32,7 +32,7 @@ for project in "hearthy-client-public" "hearthy-professional-public" "brahma-adm
   python -c'import time; print repr(time.time())' > .force_push
   git add .
   git commit --amend -a -m "deployment" > /dev/null
-  git push --force
+  git push --force DEV
   cd ..
 done
 
