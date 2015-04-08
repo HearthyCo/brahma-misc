@@ -9,8 +9,8 @@
 #   wait $pid
 # done
 
-export BRAHMA_API_PORT=tcp://brahma-api.byglue.me:80
-export BRAHMA_CHAT_PORT=tcp://brahma-chat.byglue.me:80
+export BRAHMA_API_PORT=tcp://api.demo.hearthy.co:80
+export BRAHMA_CHAT_PORT=tcp://chat.demo.hearthy.co:80
 
 projectsServer="brahma-api brahma-chat brahma-notifications"
 projectsClient="hearthy-client-public hearthy-professional-public brahma-admin-public"
@@ -31,14 +31,14 @@ echo -e "${color_1}${color_2} ____  _____ _____ __    _____ __ __    _____ _____
 |  |  |   __|   __|  |__|  |  |_   _|  |__   | | | |     |    -| | | |__   |
 |____/|_____|__|  |_____|_____| |_|    |_____| |_| |__|__|__|__| |_| |_____|$color_no"
 
-./grunt
+./grunt preproduction
 
 if [ "$projects" == "all" -o "$projects" == "server" ]; then
   for project in $projectsServer; do
     cd "$project"
     current=$(git rev-parse --abbrev-ref HEAD)
     echo -e "${color_1}Deploying ${color_2}$project$color_no"
-    git push --force DEV develop:master
+    git push --force PRE develop:master
     cd ..
   done
 fi
@@ -50,7 +50,7 @@ if [ "$projects" == "all" -o "$projects" == "client" ]; then
     python -c'import time; print repr(time.time())' > .force_push
     git add .
     git commit --amend -a -m "deployment" > /dev/null
-    git push --force DEV
+    git push --force PRE
     cd ..
   done
 fi
