@@ -3,6 +3,6 @@ module.exports = ->
 
   @config "clean",
     options:
-      pwd: "public/"
+      force: true
     public: [ "public/*" ]
     jsdist: [ "public/main.dist.js" ]
