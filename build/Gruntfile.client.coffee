@@ -25,6 +25,6 @@ module.exports = ->
 
   # DEFAULT
   @registerTask "default",  ["development"]
-  @registerTask "dev",      ["development", "run", "watch"]
+  @registerTask "dev",      ["build-dev", "run", "watch"]
   @registerTask "mobile",   ["env:mobile", "development"]
   @registerTask "heroku",   ["production"]
