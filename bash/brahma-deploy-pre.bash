@@ -9,9 +9,6 @@
 #   wait $pid
 # done
 
-export BRAHMA_API_PORT=tcp://api.demo.hearthy.co:80
-export BRAHMA_CHAT_PORT=tcp://chat.demo.hearthy.co:80
-
 projectsServer="brahma-api brahma-chat brahma-notifications"
 projectsClient="hearthy-client-public hearthy-professional-public brahma-admin-public"
 
