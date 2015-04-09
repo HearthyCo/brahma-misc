@@ -1,0 +1,56 @@
+module.exports = ->
+
+  @loadNpmTasks "grunt-closure-tools"
+
+  @config "closureCompiler",
+    options:
+      compilerFile: require('superstartup-closure-compiler').getPathSS()
+      # checkModified: true
+      compilerOpts:
+        compilation_level: 'ADVANCED_OPTIMIZATIONS',
+        # externs: ['path/to/file.js', '/source/**/*.js']
+        # define: ["'goog.DEBUG=false'"]
+        warning_level: 'DEFAULT' # QUIET, DEFAULT, VERBOSE
+        jscomp_off: [
+          # 'accessControls'
+          # 'ambiguousFunctionDecl'
+          # 'checkEventfulObjectDisposal'
+          'checkRegExp'
+          # 'checkStructDictInheritance'
+          # 'checkTypes'
+          # 'checkVars'
+          # 'const'
+          # 'constantProperty'
+          # 'deprecated'
+          # 'duplicateMessage'
+          # 'es3'
+          # 'es5Strict'
+          # 'externsValidation'
+          # 'fileoverviewTags'
+          # 'globalThis'
+          # 'internetExplorerChecks'
+          # 'invalidCasts'
+          # 'misplacedTypeAnnotation'
+          # 'missingProperties'
+          # 'missingProvide'
+          # 'missingRequire'
+          # 'missingReturn'
+          # 'nonStandardJsDocs'
+          # 'reportUnknownTypes'
+          # 'suspiciousCode'
+          # 'strictModuleDepCheck'
+          # 'typeInvalidation'
+          # 'undefinedNames'
+          # 'undefinedVars'
+          # 'unknownDefines'
+          'uselessCode'
+          # 'visibility'
+        ]
+        summary_detail_level: 1
+        output_wrapper: '"(function(){%output%}).call(this);"'
+        # allow_es6_out: null
+        # debug: null
+        language_in: 'ECMASCRIPT5'
+    dist:
+      src: "public/main.js"
+      dest: "public/main.closure.js"
