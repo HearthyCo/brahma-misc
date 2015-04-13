@@ -18,15 +18,18 @@ if [ -n "$1" ]; then
   projects=$1
 fi
 
-color_1='\033[0;35m'
-color_2='\033[1;35m'
+color_1='\033[0;36m'
+color_2='\033[1;36m'
 color_3='\033[0;90m'
 color_no='\033[0m'
 
-echo -e "${color_1}${color_2} ____  _____ _____ __    _____ __ __    _____ _____ _____ _____ _____ _____
-|    \|   __|  _  |  |  |     |  |  |  |   __|_   _|  _  | __  |_   _|   __|
-|  |  |   __|   __|  |__|  |  |_   _|  |__   | | | |     |    -| | | |__   |
-|____/|_____|__|  |_____|_____| |_|    |_____| |_| |__|__|__|__| |_| |_____|$color_no"
+echo -e "
+${color_2}o--o  o--o  o--o     ${color_1}o-o   o--o o--o  o     o-o  o   o
+${color_2}|   | |   | |        ${color_1}|  \  |    |   | |    o   o  \ /
+${color_2}O--o  O-Oo  O-o      ${color_1}|   O O-o  O--o  |    |   |   O
+${color_2}|     |  \  |        ${color_1}|  /  |    |     |    o   o   |
+${color_2}o     o   o o--o     ${color_1}o-o   o--o o     O---o o-o    o
+$color_no"
 
 ./grunt preproduction
 
@@ -44,7 +47,7 @@ if [ "$projects" == "all" -o "$projects" == "client" ]; then
   for project in $projectsClient; do
     cd "$project"
     echo -e "${color_1}Deploying ${color_2}$project$color_no"
-    python -c'import time; print repr(time.time())' > .force_push
+    #python -c'import time; print repr(time.time())' > .force_push
     git add .
     git commit --amend -a -m "deployment" > /dev/null
     git push --force PRE
