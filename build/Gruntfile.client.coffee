@@ -18,13 +18,45 @@ module.exports = ->
     "compile"
   ]
 
-  # ENVIRONMENTS
-  @registerTask "development",   ["env:development", "build-dev"]
-  @registerTask "preproduction", ["env:preproduction", "build"]
-  @registerTask "production",    ["env:production", "build"]
+  # ENVIRONMENTS, WEB
+  @registerTask "development", [
+    "env:web"
+    "env:development"
+    "build-dev"
+  ]
+  @registerTask "preproduction", [
+    "env:web"
+    "env:preproduction"
+    "build"
+  ]
+  @registerTask "production", [
+    "env:web"
+    "env:production"
+    "build"
+  ]
+
+  # ENVIRONMENTS, MOBILE
+  @registerTask "development:mobile", [
+    "env:mobile"
+    "env:android"
+    "env:development"
+    "build-dev"
+  ]
+  @registerTask "preproduction:mobile", [
+    "env:mobile"
+    "env:android"
+    "env:preproduction"
+    "build"
+  ]
+  @registerTask "production:mobile", [
+    "env:mobile"
+    "env:android"
+    "env:production"
+    "build"
+  ]
 
   # DEFAULT
   @registerTask "default",  ["development"]
   @registerTask "dev",      ["build-dev", "run", "watch"]
-  @registerTask "mobile",   ["env:mobile", "development"]
+  @registerTask "mobile",   ["development:mobile"]
   @registerTask "heroku",   ["production"]

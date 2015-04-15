@@ -2,8 +2,20 @@ module.exports = ->
   @loadNpmTasks "grunt-env"
 
   @config "env",
+    web:
+      HEARTHY_APP: "web"
+
     mobile:
-      HEARTHY_PLATFORM: "mobile"
+      HEARTHY_APP: "mobile"
+
+    tablet:
+      HEARTHY_APP: "tablet"
+
+    android:
+      HEARTHY_PLATFORM: "android"
+
+    ios:
+      HEARTHY_PLATFORM: "ios"
 
     development:
       BRAHMA_API_PORT: "tcp://brahma-api.byglue.me:80"
