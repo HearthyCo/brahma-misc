@@ -6,3 +6,4 @@ module.exports = ->
       force: true
     public: [ "public/*" ]
     jsdist: [ "public/main.dist.js" ]
+    env: [ "public/main.env.js" ]
