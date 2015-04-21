@@ -2,7 +2,7 @@
 
 #Defaults
 #containers="postgres rabbitmq redis swagger"
-containers="postgres rabbitmq redis"
+containers="postgres rabbitmq redis pushd"
 
 if [[ "x$1" != "x" ]]; then
   containers=$1
