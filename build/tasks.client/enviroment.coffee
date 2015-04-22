@@ -19,7 +19,7 @@ module.exports = ->
 
     development:
       BRAHMA_API_PORT: "tcp://brahma-api.byglue.me:80"
-      BRAHMA_CHAT_PORT: "tcp://brahma-chat.byglue.me:80"
+      BRAHMA_CHAT_PORT: "tcp://localhost:1337"
 
     preproduction:
       BRAHMA_API_PORT: "tcp://api.demo.hearthy.co:80"

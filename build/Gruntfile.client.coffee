@@ -5,7 +5,8 @@ module.exports = ->
   # COMMON
   @registerTask "html",    ["merge-json", "copy:html"]
   @registerTask "css",     ["compass"]
-  @registerTask "js",      ["copy:components", "coffeelint", "browserify", "envify", "clean:env"]
+  @registerTask "js",      ["copy:components", "coffeelint",
+                            "browserify", "envify", "clean:env"]
   @registerTask "compile", ["uglify:dist", "copy:jsdist", "clean:jsdist"]
 
   @registerTask "build-dev", ["clean:public", "html", "css", "js"]
