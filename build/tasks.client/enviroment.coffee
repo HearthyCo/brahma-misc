@@ -17,6 +17,10 @@ module.exports = ->
     ios:
       HEARTHY_PLATFORM: "ios"
 
+    local:
+      BRAHMA_API_PORT: process.env.LOCAL_BRAHMA_API_PORT or "tcp://localhost:9000"
+      BRAHMA_CHAT_PORT: process.env.LOCAL_BRAHMA_CHAT_PORT or "tcp://localhost:1337"
+
     development:
       BRAHMA_API_PORT: "tcp://brahma-api.byglue.me:80"
       BRAHMA_CHAT_PORT: "tcp://brahma-chat.byglue.me:80"
