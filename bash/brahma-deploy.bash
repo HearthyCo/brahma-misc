@@ -50,6 +50,7 @@ if [ "$projects" == "all" -o "$projects" == "client" ]; then
     #python -c'import time; print repr(time.time())' > .force_push
     git add .
     git commit --amend -a -m "deployment" > /dev/null
+    git commit -a -m "deployment" > /dev/null
     git push --force DEV
     cd ..
   done

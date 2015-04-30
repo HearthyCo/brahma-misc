@@ -1,6 +1,6 @@
 VAGRANTFILE_API_VERSION = "2"
 
-$update_channel = "alpha"
+$update_channel = "beta"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "coreos-%s" % $update_channel
