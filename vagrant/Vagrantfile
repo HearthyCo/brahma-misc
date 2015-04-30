@@ -59,14 +59,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   end
   # end
 
-  config.vm.define "activator" do |v|
-    v.vm.provider "docker" do |d|
-      d.name = "activator"
-      d.image = "duncan/activator"
-      d.ports = ["8888:8889"]
-      d.vagrant_vagrantfile = "./proxy.Vagrantfile"
-    end
-  end
+  # config.vm.define "activator" do |v|
+  #   v.vm.provider "docker" do |d|
+  #     d.name = "activator"
+  #     d.image = "duncan/activator"
+  #     d.ports = ["8888:8889"]
+  #     d.vagrant_vagrantfile = "./proxy.Vagrantfile"
+  #   end
+  # end
 
   config.vm.define "pushd" do |v|
     v.vm.provider "docker" do |d|
