@@ -6,7 +6,7 @@ module.exports = ->
   @registerTask "html",     ["merge-json", "copy:html"]
   @registerTask "css",      ["compass"]
   @registerTask "js-pack",  ["copy:components", "coffeelint", "browserify"]
-  @registerTask "build-dev", [
+  @registerTask "build-all-dev", [
     "clean:public", "html", "css", "js-pack"
     "env:mobile"
     "env:android", "envify", "copy:publicAndroid"
@@ -20,16 +20,24 @@ module.exports = ->
     "env:ios", "envify", "compile", "copy:publicIos"
     "env:web", "envify", "compile", "clean:env"
   ]
+  @registerTask "build-web-dev", [
+    "clean:public", "html", "css", "js-pack"
+    "env:web", "envify", "clean:env"
+  ]
+  @registerTask "build-web", [
+    "clean:public", "html", "css", "cssmin", "js-pack"
+    "env:web", "envify", "compile", "clean:env"
+  ]
   @registerTask "compile", ["uglify:dist", "copy:jsdist", "clean:jsdist"]
 
   # ENVIRONMENTS
   @registerTask "local", [
     "env:local"
-    "build-dev"
+    "build-all-dev"
   ]
   @registerTask "development", [
     "env:development"
-    "build-dev"
+    "build-all-dev"
   ]
   @registerTask "preproduction", [
     "env:preproduction"
@@ -38,6 +46,24 @@ module.exports = ->
   @registerTask "production", [
     "env:production"
     "build-all"
+  ]
+
+  # ENVIRONMENTS, ONLY WEB
+  @registerTask "local:web", [
+    "env:local"
+    "build-web-dev"
+  ]
+  @registerTask "development:web", [
+    "env:development"
+    "build-web-dev"
+  ]
+  @registerTask "preproduction:web", [
+    "env:preproduction"
+    "build-web"
+  ]
+  @registerTask "production:web", [
+    "env:production"
+    "build-web"
   ]
 
   # ENVIRONMENTS, MOBILE
@@ -59,7 +85,7 @@ module.exports = ->
   ]
 
   # DEFAULT
-  @registerTask "default",  ["development"]
+  @registerTask "default",  ["development:web"]
   @registerTask "dev",      ["development", "run", "watch"]
   @registerTask "mobile",   ["development:mobile"]
-  @registerTask "heroku",   ["production"]
+  @registerTask "heroku",   ["production:web"]
