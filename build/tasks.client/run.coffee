@@ -9,6 +9,11 @@ module.exports = ->
       options:
         wait: false
 
+    gradleAndroidLocal:
+      cmd: "./gradlew"
+      args: ["assembleLocalDebug"]
+      options:
+        cwd: "../hearthy-client-android/"
     gradleAndroidDevelopment:
       cmd: "./gradlew"
       args: ["assembleDevelopment"]

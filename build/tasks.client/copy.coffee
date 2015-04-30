@@ -34,3 +34,21 @@ module.exports = ->
     jsdist:
       src: "public/main.dist.js"
       dest: "public/main.js"
+    publicAndroid:
+      files: [
+        {
+          expand: true
+          cwd: "public/"
+          src: "**/*"
+          dest: "public-android/"
+        }
+      ]
+    publicIos:
+      files: [
+        {
+          expand: true
+          cwd: "public/"
+          src: "**/*"
+          dest: "public-ios/"
+        }
+      ]

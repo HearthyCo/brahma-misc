@@ -3,61 +3,63 @@ module.exports = ->
   @loadTasks "build/tasks"
 
   # COMMON
-  @registerTask "html",    ["merge-json", "copy:html"]
-  @registerTask "css",     ["compass"]
-  @registerTask "js",      ["copy:components", "coffeelint",
-                            "browserify", "envify", "clean:env"]
+  @registerTask "html",     ["merge-json", "copy:html"]
+  @registerTask "css",      ["compass"]
+  @registerTask "js-pack",  ["copy:components", "coffeelint", "browserify"]
+  @registerTask "build-dev", [
+    "clean:public", "html", "css", "js-pack"
+    "env:mobile"
+    "env:android", "envify", "copy:publicAndroid"
+    "env:ios", "envify", "copy:publicIos"
+    "env:web", "envify", "clean:env"
+  ]
+  @registerTask "build-all", [
+    "clean:public", "html", "css", "cssmin", "js-pack"
+    "env:mobile"
+    "env:android", "envify", "compile", "copy:publicAndroid"
+    "env:ios", "envify", "compile", "copy:publicIos"
+    "env:web", "envify", "compile", "clean:env"
+  ]
   @registerTask "compile", ["uglify:dist", "copy:jsdist", "clean:jsdist"]
 
-  @registerTask "build-dev", ["clean:public", "html", "css", "js"]
-  @registerTask "build",     [
-    "clean:public"
-    "html"
-    "css"
-    "cssmin"
-    "js"
-    "compile"
+  # ENVIRONMENTS
+  @registerTask "local", [
+    "env:local"
+    "build-dev"
   ]
-
-  # ENVIRONMENTS, WEB
   @registerTask "development", [
-    "env:web"
     "env:development"
     "build-dev"
   ]
   @registerTask "preproduction", [
-    "env:web"
     "env:preproduction"
-    "build"
+    "build-all"
   ]
   @registerTask "production", [
-    "env:web"
     "env:production"
-    "build"
+    "build-all"
   ]
 
   # ENVIRONMENTS, MOBILE
+  @registerTask "local:mobile", [
+    "local"
+    "run:gradleAndroidLocal"
+  ]
   @registerTask "development:mobile", [
-    "env:mobile"
-    "env:android"
-    "env:development"
-    "build-dev"
+    "development"
+    "run:gradleAndroidDevelopment"
   ]
   @registerTask "preproduction:mobile", [
-    "env:mobile"
-    "env:android"
-    "env:preproduction"
-    "build"
+    "preproduction"
+    "run:gradleAndroidPreproduction"
   ]
   @registerTask "production:mobile", [
-    "env:mobile"
-    "env:android"
-    "env:production"
-    "build"
+    "preproduction"
+    "run:gradleAndroidProduction"
   ]
 
   # DEFAULT
   @registerTask "default",  ["development"]
-  @registerTask "dev",      ["build-dev", "run", "watch"]
+  @registerTask "dev",      ["development", "run", "watch"]
   @registerTask "mobile",   ["development:mobile"]
   @registerTask "heroku",   ["production"]
