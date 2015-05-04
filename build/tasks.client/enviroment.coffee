@@ -13,7 +13,7 @@ module.exports = ->
 
     android:
       HEARTHY_PLATFORM: "android"
-      ANDROID_KEYSTORE: "../brahma-misc/android/hearthy.jks"
+      ANDROID_KEYSTORE: "../../brahma-misc/android/hearthy.jks"
       ANDROID_KEYSTORE_PASSWORD: "gic-ba-hir-uv-en-wiet-mi-h"
       ANDROID_KEY_ALIAS: "hearthy"
       ANDROID_KEY_PASSWORD: "a-twod-foy-phriesh-ot-a-wr"
