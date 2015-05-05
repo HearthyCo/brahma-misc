@@ -7,7 +7,7 @@ module.exports = ->
       spawn: false
     grunt:
       files: "Gruntfile.coffee"
-      tasks: ["development"]
+      tasks: ["development:web"]
     coffee:
       files: "app/**/*.coffee"
       tasks: ["js"]
