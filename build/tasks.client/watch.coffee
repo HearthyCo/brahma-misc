@@ -10,10 +10,10 @@ module.exports = ->
       tasks: ["development:web"]
     coffee:
       files: "app/**/*.coffee"
-      tasks: ["js"]
+      tasks: ["js-web"]
     components:
       files: "brahma_modules/brahma-components/dist/**/*.js"
-      tasks: ["js"]
+      tasks: ["js-web"]
     sass:
       files: "app/style/**/*"
       tasks: ["css"]

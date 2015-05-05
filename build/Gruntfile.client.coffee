@@ -6,6 +6,9 @@ module.exports = ->
   @registerTask "html",     ["merge-json", "copy:html"]
   @registerTask "css",      ["compass"]
   @registerTask "js-pack",  ["copy:components", "coffeelint", "browserify"]
+  @registerTask "js-web",   [
+    "js-pack", "env:web", "envify", "clean:env"
+  ]
   @registerTask "build-all-dev", [
     "clean:public", "html", "css", "js-pack"
     "env:mobile"
