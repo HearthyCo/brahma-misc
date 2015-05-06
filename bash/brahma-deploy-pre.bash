@@ -54,7 +54,7 @@ if [ "$projects" == "all" -o "$projects" == "client" ]; then
     git push --force PRE
     cd ..
   done
-  cd "hearthy-client-public"
+  cd "hearthy-client-android"
   echo -e "${color_1}Compiling ${color_2}Android APK$color_no"
   gradle assemblePreproductionRelease
   cd ..
