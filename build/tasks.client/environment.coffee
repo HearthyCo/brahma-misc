@@ -11,15 +11,11 @@ module.exports = ->
     tablet:
       HEARTHY_APP: "tablet"
 
-    android:
-      HEARTHY_PLATFORM: "android"
-      ANDROID_KEYSTORE: "../../brahma-misc/android/hearthy.jks"
-      ANDROID_KEYSTORE_PASSWORD: "gic-ba-hir-uv-en-wiet-mi-h"
-      ANDROID_KEY_ALIAS: "hearthy"
-      ANDROID_KEY_PASSWORD: "a-twod-foy-phriesh-ot-a-wr"
-
     ios:
       HEARTHY_PLATFORM: "ios"
+
+    android:
+      HEARTHY_PLATFORM: "android"
 
     local:
       BRAHMA_API_PORT: process.env.LOCAL_BRAHMA_API_PORT or
