@@ -54,6 +54,10 @@ if [ "$projects" == "all" -o "$projects" == "client" ]; then
     git push --force DEV
     cd ..
   done
+  cd "hearthy-client-public"
+  echo -e "${color_1}Compiling ${color_2}Android APK$color_no"
+  gradle assembleDevelopmentRelease
+  cd ..
 fi
 
 echo -e "${color_1}${color_2}END OF DEPLOYMENT$color_no"
