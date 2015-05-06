@@ -31,7 +31,7 @@ ${color_2}|  /  |     \ /      ${color_1}|  /  |    |     |    o   o   |
 ${color_2}o-o   o--o   o       ${color_1}o-o   o--o o     O---o o-o    o
 $color_no"
 
-./grunt
+./grunt development
 
 if [ "$projects" == "all" -o "$projects" == "server" ]; then
   for project in $projectsServer; do
