@@ -49,8 +49,8 @@ if [ "$projects" == "all" -o "$projects" == "client" ]; then
     echo -e "${color_1}Deploying ${color_2}$project$color_no"
     #python -c'import time; print repr(time.time())' > .force_push
     git add .
-    git commit --amend -a -m "deployment" > /dev/null
-    git commit -a -m "deployment" > /dev/null
+    #git commit --amend -m "deployment" > /dev/null
+    git commit -m "deployment $(date)" > /dev/null
     git push --force DEV
     cd ..
   done
