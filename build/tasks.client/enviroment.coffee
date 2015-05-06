@@ -14,6 +14,9 @@ module.exports = ->
     ios:
       HEARTHY_PLATFORM: "ios"
 
+    android:
+      HEARTHY_PLATFORM: "android"
+
     local:
       BRAHMA_API_PORT: process.env.LOCAL_BRAHMA_API_PORT or
         "tcp://localhost:9000"
