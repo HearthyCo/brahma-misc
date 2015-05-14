@@ -14,22 +14,26 @@ module.exports = ->
     "env:mobile"
     "env:android", "envify", "copy:publicAndroid"
     "env:ios", "envify", "copy:publicIos"
-    "env:web", "envify", "clean:env"
+    "env:web"
+    "env:desktop", "envify", "clean:env"
   ]
   @registerTask "build-all", [
     "clean:public", "html", "css", "cssmin", "js-pack"
     "env:mobile"
     "env:android", "envify", "compile", "copy:publicAndroid"
     "env:ios", "envify", "compile", "copy:publicIos"
-    "env:web", "envify", "compile", "clean:env"
+    "env:web"
+    "env:desktop", "envify", "compile", "clean:env"
   ]
   @registerTask "build-web-dev", [
     "clean:public", "html", "css", "js-pack"
-    "env:web", "envify", "clean:env"
+    "env:web"
+    "env:desktop", "envify", "clean:env"
   ]
   @registerTask "build-web", [
     "clean:public", "html", "css", "cssmin", "js-pack"
-    "env:web", "envify", "compile", "clean:env"
+    "env:web"
+    "env:desktop", "envify", "compile", "clean:env"
   ]
   @registerTask "compile", ["uglify:dist", "copy:jsdist", "clean:jsdist"]
 
@@ -44,7 +48,8 @@ module.exports = ->
   ]
   @registerTask "preproduction", [
     "env:preproduction"
-    "build-all"
+    # "build-all"
+    "build-all-dev"
   ]
   @registerTask "production", [
     "env:production"
