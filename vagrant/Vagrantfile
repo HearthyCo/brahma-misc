@@ -2,6 +2,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # config.vm.define "elasticsearch" do |v|
+  #   v.vm.hostname = "elasticsearch.brahma.local"
   #   v.vm.provider "docker" do |d|
   #     d.name = "elasticsearch"
   #     d.image = "orchardup/elasticsearch"
@@ -11,6 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # end
 
   config.vm.define "postgres" do |v|
+    v.vm.hostname = "postgres.brahma.local"
     v.vm.provider "docker" do |d|
       d.name = "postgres"
       d.image = "library/postgres"
@@ -27,9 +29,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define "rabbitmq" do |v|
+    v.vm.hostname = "rabbitmq.brahma.local"
     v.vm.provider "docker" do |d|
       d.name = "rabbitmq"
       d.image = "library/rabbitmq"
+      # Remove /var/docker/rabbitmq/ if 'up' fails
       d.volumes = ["/var/docker/rabbitmq/data/mnesia:/var/lib/rabbitmq/mnesia"]
       d.ports = ["5672:5672","15672:15672"]
       d.env = {
@@ -40,6 +44,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define "redis" do |v|
+    v.vm.hostname = "redis.brahma.local"
     v.vm.provider "docker" do |d|
       d.name = "redis"
       d.image = "library/redis"
@@ -50,6 +55,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # config.vm.define "swagger" do |v|
+  #   v.vm.hostname = "swagger.brahma.local"
   #   v.vm.provider "docker" do |d|
   #     d.name = "swagger"
   #     d.image = "capoferro/swagger-ui"
@@ -60,6 +66,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # end
 
   # config.vm.define "activator" do |v|
+  #   v.vm.hostname = "activator.brahma.local"
   #   v.vm.provider "docker" do |d|
   #     d.name = "activator"
   #     d.image = "duncan/activator"
@@ -69,6 +76,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # end
 
   config.vm.define "pushd" do |v|
+    v.vm.hostname = "pushd.brahma.local"
     v.vm.provider "docker" do |d|
       d.name = "pushd"
       d.build_dir = "pushd"
