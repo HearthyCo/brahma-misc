@@ -22,18 +22,18 @@ module.exports = ->
 
     local:
       BRAHMA_API_PORT: process.env.LOCAL_BRAHMA_API_PORT or
-        "tcp://localhost:9000"
+        "http://localhost:9000"
       BRAHMA_CHAT_PORT: process.env.LOCAL_BRAHMA_CHAT_PORT or
-        "tcp://localhost:1337"
+        "ws://localhost:1337"
 
     development:
-      BRAHMA_API_PORT: "tcp://brahma-api.byglue.me:80"
-      BRAHMA_CHAT_PORT: "tcp://brahma-chat.byglue.me:443"
+      BRAHMA_API_PORT: "http://localhost:9000"
+      BRAHMA_CHAT_PORT: "wss://chat.demo.hearthy.co"
 
     preproduction:
-      BRAHMA_API_PORT: "tcp://api.demo.hearthy.co:80"
-      BRAHMA_CHAT_PORT: "tcp://chat.demo.hearthy.co:443"
+      BRAHMA_API_PORT: "https://api.demo.hearthy.co"
+      BRAHMA_CHAT_PORT: "wss://chat.demo.hearthy.co"
 
     production:
-      BRAHMA_API_PORT: "tcp://api.demo.hearthy.co:443"
-      BRAHMA_CHAT_PORT: "tcp://chat.demo.hearthy.co:443"
+      BRAHMA_API_PORT: "https://api.demo.hearthy.co"
+      BRAHMA_CHAT_PORT: "wss://chat.demo.hearthy.co"
